@@ -9,12 +9,12 @@ import slugify from 'slugify';
 
 // Create Sanity client
 const client = createClient({
-  projectId: "3ullc1fm",
-  dataset: "production",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   useCdn: false,
-  token: "skgT8bh3CZEWbIp0hHgduZZxq2ZgImR1yrhJysvaYc3ATPr4RGaU5G9H1x6edv2w4rQGSleqOP8RdCwvPf5e9UfL32nhpHQOU6VY86cLQwWyU30otfqPHJLSm6bmywLnQJAlLlMgxxKvT4p3ovaSxWDSBVmbwxcw3cm5Ge5iDiLcrHXWTjkB",
-  apiVersion: '2025-01-12'
-})
+  token: process.env.SANITY_API_TOKEN,
+  apiVersion: '2025-01-12',
+});
 
 // Function to upload an image to Sanity
 async function uploadImageToSanity(imageUrl) {
